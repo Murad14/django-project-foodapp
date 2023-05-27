@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(req):
     return HttpResponse('Hello World')
+
+def item(req):
+    return HttpResponse('<h1>This is an item view</h1>')
