@@ -22,5 +22,8 @@ def item(req):
     return HttpResponse('<h1>This is an item view</h1>')
 
 def detail(req,item_id):
-
-    return HttpResponse(f"This is item no/id: {item_id}")
+    item = Item.objects.get(pk=item_id)
+    context = {
+        'item':item
+    }
+    return render(req,'food/detail.html',context)
