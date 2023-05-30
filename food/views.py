@@ -7,11 +7,14 @@ from django.template import loader
 
 def index(req):
     item_list = Item.objects.all()
-    template = loader.get_template('food/index.html')
+    # template = loader.get_template('food/index.html')
     context = {
-        
+        'item_list': item_list,
     }
-    return HttpResponse(template.render(context,req))
+    # return HttpResponse(template.render(context,req))
+    # Alternative way below
+    return render(req,'food/index.html',context)
+
 
 
 
