@@ -20,3 +20,7 @@ def index(req):
 
 def item(req):
     return HttpResponse('<h1>This is an item view</h1>')
+
+def detail(req,item_id):
+
+    return HttpResponse(f"This is item no/id: {item_id}")
