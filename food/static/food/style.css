@@ -1,3 +1,8 @@
 body{
     background-color:lightyellow;
 }
+.navbar-button-group {
+    display: flex;
+    gap: 40px;
+}
+
