@@ -5,4 +5,7 @@ body{
     display: flex;
     gap: 40px;
 }
-
+.item-image {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
