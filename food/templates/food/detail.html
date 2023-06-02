@@ -2,8 +2,21 @@
 
 {%block body%}
 
-<h1>{{ item.item_name }}</h1>
-<h2>{{ item.item_desc }}</h2>
-<h3>{{ item.item_price }}</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-fluid item-image card" src="{{ item.item_image }}">
+        </div>
+
+        <div class="col-md-6">  
+            <br>     
+            <h1>{{ item.item_name }}</h1>
+            <h2>{{ item.item_desc }}</h2>
+            <h3>${{ item.item_price }}</h3>
+        </div>
+
+    </div>
+</div>
+
 
 {%endblock%}
