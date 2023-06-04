@@ -8,6 +8,7 @@ def register(req):
     if req.method == 'POST':
         form = UserCreationForm(req.POST)
         if form.is_valid():
+           form.save()
            username = form.cleaned_data.get('username')
            messages.success(req,f'Welcome {username}, your account is created!')
            return redirect('food:index')
