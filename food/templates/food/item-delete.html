@@ -3,7 +3,7 @@
 
 <form method="POST" action="">
     {% csrf_token %}
-    <h2>Are you sure you want to delete {{ item.item_name }}</h2>
+    <h2>Are you sure you want to delete {{ item.item_name }}?</h2>
     <button class="btn btn-success" type="submit">Confirm</button>
 </form>
 
