@@ -37,4 +37,25 @@ def create_item(req):
     if form.is_valid():
         form.save()
         return redirect('food:index')
+    
     return render(req, 'food/item-form.html', {'form':form})
+
+def update_item(req, id):
+    item = Item.objects.get(id=id)
+    form = ItemForm(req.POST or None, instance=item)
+
+    if form.is_valid():
+        form.save()
+        return redirect('food:index')
+    
+    return render(req,'food/item-form.html',{'form':form,'item':item})
+
+def delete_item(req, id):
+    item = Item.objects.get(id=id)
+
+    if  req.method == 'POST':
+       item.delete()
+       return redirect('food:index')
+    
+    return render(req,'food/item-delete.html',{'item':item}) 
+
