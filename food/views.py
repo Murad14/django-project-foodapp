@@ -4,8 +4,6 @@ from .models import Item
 from django.template import loader
 from .forms import ItemForm
 
-
-
 # Create your views here.
 
 def index(req):
