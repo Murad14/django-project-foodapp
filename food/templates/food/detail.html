@@ -10,9 +10,9 @@
 
         <div class="col-md-6">  
             <br>     
-            <h1>{{ item.item_name }}</h1>
-            <h2>{{ item.item_desc }}</h2>
-            <h3>${{ item.item_price }}</h3>
+            <h1>{{ object.item_name }}</h1>
+            <h2>{{ object.item_desc }}</h2>
+            <h3>${{ object.item_price }}</h3>
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'food:delete_item' item.id %}">Delete</a>
         </div>
 
