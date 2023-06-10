@@ -1,3 +1,4 @@
+from django.forms.models import BaseModelForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Item
@@ -5,6 +6,7 @@ from django.template import loader
 from .forms import ItemForm
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 
@@ -52,6 +54,18 @@ def create_item(req):
         return redirect('food:index')
     
     return render(req, 'food/item-form.html', {'form':form})
+
+# classbased view for create item
+class CreateItem(CreateView):
+    model = Item
+    fields = ['item_name','item_desc','item_price','item_image']
+    template_name = "food/item-form.html"
+
+    def form_valid(self, form):
+        form.instance.user_name = self.request.user
+
+        return super().form_valid(form)
+
 
 def update_item(req, id):
     item = Item.objects.get(id=id)
