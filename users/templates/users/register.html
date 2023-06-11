@@ -1,6 +1,73 @@
-<form method="POST">
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<div class="container d-flex align-items-center justify-content-center vh-100">
+  <div class="col-md-6">
+    <div class="card shadow-lg">
+      <div class="card-header bg-primary text-white text-center">
+        <h4>Sign Up</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST" class="needs-validation" novalidate>
+          {% csrf_token %}
+          <div class="row mb-3">
+            <label for="{{ form.username.id_for_label }}" class="col-sm-4 col-form-label text-end">Username:</label>
+            <div class="col-sm-8">
+              {{ form.username }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="{{ form.email.id_for_label }}" class="col-sm-4 col-form-label text-end">Email:</label>
+            <div class="col-sm-8">
+              {{ form.email }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="{{ form.password1.id_for_label }}" class="col-sm-4 col-form-label text-end">Password:</label>
+            <div class="col-sm-8">
+              {{ form.password1 }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="{{ form.password2.id_for_label }}" class="col-sm-4 col-form-label text-end">Confirm Password:</label>
+            <div class="col-sm-8">
+              {{ form.password2 }}
+            </div>
+          </div>
+          <div class="text-center mt-3">
+            <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <form method="POST">
     {% csrf_token %}
     {{form}}
     <button type="submit">SignUp</button>
 
-</form>
+</form> {% endcomment %}
