@@ -1,9 +1,54 @@
 {% extends 'food/base.html' %}
 {% block body %}
-<form method="POST">
+
+
+<div class="container">
+    <div class="col-md-6">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h4>Add Item</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="row mb-3">
+              <label for="{{ form.item_name.id_for_label }}" class="col-sm-4 col-form-label text-end">Item Name:</label>
+              <div class="col-sm-8">
+                {{ form.item_name }}
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="{{ form.item_desc.id_for_label }}" class="col-sm-4 col-form-label text-end">Item Description:</label>
+              <div class="col-sm-8">
+                {{ form.item_desc }}
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="{{ form.item_price.id_for_label }}" class="col-sm-4 col-form-label text-end">Item Price:</label>
+              <div class="col-sm-8">
+                {{ form.item_price }}
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="{{ form.item_image.id_for_label }}" class="col-sm-4 col-form-label text-end">Item Image:</label>
+              <div class="col-sm-8">
+                {{ form.item_image }}
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <button class="btn btn-primary btn-block" type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% comment %} <form method="POST">
     {% csrf_token %}
     {{form}}
     <button type="submit">Save</button>
 
-</form>
+</form> {% endcomment %}
 {% endblock %}

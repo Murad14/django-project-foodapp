@@ -85,4 +85,3 @@ def delete_item(req, id):
        return redirect('food:index')
     
     return render(req,'food/item-delete.html',{'item':item}) 
-
